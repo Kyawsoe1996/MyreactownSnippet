@@ -79,5 +79,38 @@
 }
 .some-class {
     cursor: default;
+    height: 35px;
+}
+
+.comment-form {
+    display: flex;
+    justify-content: space-around;
+}
+
+.reaction-time {
+    display: flex;
+    justify-content: space-around;
+}
+
+.comment-text {
+    
+    border: 2px solid white;
+    box-shadow: 0 2px 7px rgb(0 0 0 / 0.2);
+    background:#fffffffb;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 20%; 
+    border-radius: 10px;
+    /* background-color: transparent; */
+   
+    box-sizing: border-box;
+    transition: transform .5s;
+    transform: translateZ(0);
+  
+}
+.logo-img {
+    height: 30px;
+    width: 30px;
+    
 }
 
