@@ -12,8 +12,12 @@ import UseEffectTest2 from './components/UseEffectTest/UseEffectTest2';
 import UseEffectTimer from './components/UseEffectTest/UseEffectTimer';
 import APIwithuseEffect from './components/UseEffectTest/APIwithuseEffect';
 import APIdetailFetch from './components/UseEffectTest/APIdetailFetch';
-import Main from './components/UseContext/Main';
+// import Main from './components/UseContext/Main';
+
 import UseReducereMain from './components/useReducer/UseReducereMain';
+
+//Django Combinig with
+import Main from './components/BlogPost/Main'
 
 function App() {
   return (
@@ -26,17 +30,44 @@ function App() {
       {/* <AddtoCart /> */}
       {/* for post comment like and user */}
       {/* <PostCommentLikeUsers /> */}
+     
+     
+     
+     
+     
       {/* ........................................................ */}
+      
       {/* //Use Effect Test */}
       {/* <UseEffectTest1 /> */}
       {/* < UseEffectTest2/>
       <APIdetailFetch /> */}
       {/* < UseEffectTimer/> */}
       {/* <APIwithuseEffect /> */}
+      
+      
+      
+      
+      
       {/* ............................... .............*/}
       {/* Use Context The whole Test */}
       {/* <Main /> */}
-      <UseReducereMain />
+      {/* ........................................... */}
+
+
+
+
+
+      {/* Use Reducer Calculator APp..................... */}
+      {/* <UseReducereMain /> */}
+      {/* ....................................................... */}
+
+
+
+
+
+      {/* API Consuming wiht BLogBost App and Django */}
+      <Main />
+      {/* ................................................ */}
 
 
 
