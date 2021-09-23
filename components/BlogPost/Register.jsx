@@ -1,8 +1,8 @@
-import React, { useReducer } from 'react'
+import React, { useReducer,useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser,faMailBulk, faVoicemail, faPassport, faPhone, faAddressBook, faHeadSideCough, faExclamationCircle, faSeedling, faLock } from '@fortawesome/free-solid-svg-icons'
 import axios from 'axios'
-import BlogPostDataService from '../BlogPost/services/Postservice'
+import BlogPostDataService from './services/BlogPostDataService'
 import { data, error } from 'jquery'
 import validator from 'validator'
 
@@ -14,6 +14,7 @@ const initialUserState = {
     confirmPassword:'',
     phone:'',
     address:'',
+    loading:true,
     error:{
         password:'',
         email:'',
@@ -73,7 +74,11 @@ const reducer = (state,{type,payload}) => {
 
         case 'EmailUniqueAfterSubmit':
             return {...state,error:{email:"Email is Already Provided"}}
-            
+        
+        
+        case 'loading':
+            return {...state,loading:false}
+        
         
         case 'submit':
             
@@ -86,12 +91,23 @@ const reducer = (state,{type,payload}) => {
 
  
 
-
-function Register() {
+// accepting props for the after register success and  to redirect in login
+function Register(props) {
     const [user,dispatchUser] =useReducer(reducer,initialUserState)
-    const {username,email,password,confirmPassword,phone,address,error} = user
+    const {username,email,password,confirmPassword,phone,address,error,loading} = user
 
-    
+    useEffect(() => {
+        if (localStorage.getItem('token') !== null) {
+          window.location.replace('http://localhost:3000/');
+        } else {
+            dispatchUser({type:'loading'})
+        }
+      }, []);
+
+    const nextPath = path => {
+        props.history.push(path);
+      }
+
     const handleUserRegister = (e) => {
        
         console.log("Btn submit")
@@ -142,9 +158,8 @@ function Register() {
         else{
             axios.post('http://localhost:8000/api/account/users/',submitted_data).then(res=>{
                    
-            console.log(res.data)
+           
             if(res.data['error_code'] === 404){
-                console.log("CUrrent is true")
                 
                 dispatchUser({type:'PhNumberUniqueAfterSubmmit'})
             } else if (res.data['email_exist'] === "true"){
@@ -152,7 +167,20 @@ function Register() {
             }
             
             else {
-                dispatchUser({type:'submit'})
+                
+                if (res.data.token) {
+                    console.log(res.data,"RES DATA")
+                    dispatchUser({type:'submit'})
+                    localStorage.clear();
+                    // localStorage.setItem('token', res.data.token);
+                    // localStorage.setItem('id', res.data.id);
+
+                    window.location.replace('http://localhost:3000/login');
+                    // nextPath('/')
+                }
+              
+                
+                
             }
             
             }).catch(err=> {
@@ -167,22 +195,17 @@ function Register() {
         
     
        
-       
-    //    axios.post('http://localhost:8000/api/account/users/',submitted_data).then(res=> {
-    //        console.log(res)
-    //    }).catch(err=>{
-    //        console.log(err)
-    //    })
-     
-
+   
         
     }
     
     return (
         <div>
-            {JSON.stringify(user)}
+             {loading === false && <h1>Signup</h1>}
             <div className="register-form">
+
                 <form onSubmit={(e)=>handleUserRegister(e)}>
+                <h3 >Register Form</h3>
                     <div className="form-label">
                       
                         <span> <FontAwesomeIcon icon={faUser}/>

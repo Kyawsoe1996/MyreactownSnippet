@@ -10,6 +10,11 @@ class BlogPostDataService {
   creteUser(x) {
       return axios.post("/account/users/",x);
     }
+  Login(data){
+        
+      return axios.post("/account/login/",data)
+  }
+  
   
   
 

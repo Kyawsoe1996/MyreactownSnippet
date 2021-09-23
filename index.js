@@ -10,8 +10,10 @@ import './index.css';
 import './blog-post.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { viewport } from '@popperjs/core';
 {/* <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet"/> */}
 <link href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
