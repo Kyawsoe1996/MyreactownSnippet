@@ -1,11 +1,16 @@
 import React,{useContext} from 'react'
 import {PostContext} from '../post/PostContext'
+import Post from './Post'
 function PostLists() {
-    const post = useContext(PostContext)
+    const posts = useContext(PostContext)
     
     return (
+        
+        
         <div>
-            <h1>PostLists... {post[0].title}</h1>
+            <div className="main-post">
+                {posts.map(post => <Post key={post.id} post={post}/>)}
+           </div>
         </div>
     )
 }

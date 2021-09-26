@@ -1,107 +1,185 @@
 .logo-img {
-    height: 40px;
-    width: 40px;
+  height: 40px;
+  width: 40px;
 }
 
 nav {
-    display: flex;
-    justify-content: space-around;
-    background:rgb(59, 59, 59);
-    align-items: center;
-    
+  display: flex;
+  justify-content: space-around;
+  background: rgb(59, 59, 59);
+  align-items: center;
 }
 
 nav ul {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 nav ul li {
-    list-style: none;
-    padding:10px 20px;
-    color:white;
-    text-transform: uppercase;
+  list-style: none;
+  padding: 10px 20px;
+  color: white;
+  text-transform: uppercase;
 }
 nav ul a {
-    color:white;
-    text-decoration: none;
+  color: white;
+  text-decoration: none;
 }
-
 
 /* 
 .................................Register Form */
 .register-form {
-  
-    padding:10px;
-    display: flex;
-    justify-content: center;
-    border: 2px solid rgb(0 0 0 / 0.2);
-    border-radius: 3px;
-    margin: 5px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  border: 2px solid rgb(0 0 0 / 0.2);
+  border-radius: 3px;
+  margin: 5px;
 }
 .form-label {
-    display: flex;
-    flex-wrap: wrap;
-    /* align-content: flex-start; */
-    justify-content: flex-end;
-    margin: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  /* align-content: flex-start; */
+  justify-content: flex-end;
+  margin: 20px;
 }
 
 .form-label input {
-    border: 2px solid white;
-    box-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
-    background:white;
-    padding:10px 20px;
-    
-    border-radius: 3px;
-    /* background-color: transparent; */
-    /* padding: 2px; */
-    box-sizing: border-box;
-    transition: transform .5s;
-    transform: translateZ(0);
-    
+  border: 2px solid white;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+  background: white;
+  padding: 10px 20px;
+
+  border-radius: 3px;
+  /* background-color: transparent; */
+  /* padding: 2px; */
+  box-sizing: border-box;
+  transition: transform 0.5s;
+  transform: translateZ(0);
 }
 
 .register-btn {
-    padding:10px 20px;
-    background: #4a4aa8;
-    color:#fff;
-    outline: none;
-    border: none;
-    font-weight: 500;
-    /* text-transform: uppercase; */
-    border-radius: 30px;
-    text-decoration: none;
+  padding: 10px 20px;
+  background: #4a4aa8;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  /* text-transform: uppercase; */
+  border-radius: 30px;
+  text-decoration: none;
 }
 /* ..................................... */
 
 /* Login Form .........................*/
 .login-btn {
-    padding:10px 20px;
-    background: #4a4aa8;
-    color:#fff;
-    outline: none;
-    border: none;
-    font-weight: 500;
-    /* text-transform: uppercase; */
-    border-radius: 30px;
-    text-decoration: none;
+  padding: 10px 20px;
+  background: #4a4aa8;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  /* text-transform: uppercase; */
+  border-radius: 30px;
+  text-decoration: none;
 }
 .login-form {
-    
-    padding:10px;
-    display: flex;
-    justify-content: center;
-    border: 2px solid rgb(0 0 0 / 0.2);
-    border-radius: 3px;
-    margin: 5px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  border: 2px solid rgb(0 0 0 / 0.2);
+  border-radius: 3px;
+  margin: 5px;
 }
-
 
 /* ................................................ */
 
-
 /* media query for navbar */
-   
 
 /* ........................... */
+
+/* Blog Post List */
+
+.main-post {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.post-item {
+  border: 2px solid white;
+  box-shadow: 0 2px 7px rgb(0 0 0 / 0.2);
+  background: white;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 20%;
+  border-radius: 10px;
+  /* background-color: transparent; */
+  padding: 15px;
+  box-sizing: border-box;
+  transition: transform 0.5s;
+  transform: translateZ(0);
+  margin: 5px 5px;
+}
+
+.view-btn {
+  padding: 10px 20px;
+  background: #c4c4f7;
+  color: #fff;
+  outline: none;
+  border: none;
+  font-weight: 500;
+  /* text-transform: uppercase; */
+  border-radius: 50px;
+  text-decoration: none;
+}
+
+/* ........................... */
+
+.like-comment-share {
+  display: flex;
+  justify-content: space-around;
+}
+.like-comment-share button {
+  border: none;
+}
+
+
+/* ........Comment Form.................... */
+
+
+.comment-form {
+  display: flex;
+  justify-content: space-around;
+}
+
+.reaction-time {
+  display: flex;
+  justify-content: space-around;
+}
+
+.comment-text {
+  
+  border: 2px solid white;
+  box-shadow: 0 2px 7px rgb(0 0 0 / 0.2);
+  background:#fffffffb;
+  align-items: center;
+  justify-content: center;
+  flex-basis: 20%; 
+  border-radius: 10px;
+  /* background-color: transparent; */
+ 
+  box-sizing: border-box;
+  transition: transform .5s;
+  transform: translateZ(0);
+
+}
+
+.no-comment-icon {
+  width: 200px;
+  height: 200px;
+  opacity: 1;
+  color: red;
+}
+
+/* ...................................... */

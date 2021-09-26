@@ -24,6 +24,9 @@ function Navbar() {
                 <ul>
                     {isAuth === true ? (
                         <Fragment>
+                            <Link to='/'>
+                                <li>Home</li>
+                            </Link>
                             <Link to='/service'>
                                 <li>Service</li>
                             </Link>
@@ -48,7 +51,7 @@ function Navbar() {
                                         }
                             </LoginUserContext.Consumer>  */}
                             {loginUser.length>0? (
-                                <Link> 
+                                <Link to='/'> 
                                      <li><FontAwesomeIcon icon={faUser}/>{loginUser[0].user.username}</li>
                                 </Link>
 

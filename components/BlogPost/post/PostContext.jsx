@@ -1,19 +1,24 @@
-import React,{useState,createContext} from 'react'
-
+import React,{useState,createContext,useEffect} from 'react'
+import BlogPostDataService from '../services/BlogPostDataService'
 export const PostContext = createContext()
 
 export const PostProvider = (props) => {
-    const [post,setPost] = useState([
-        {
-            title:"Django ",
-            description:"Django Web Framework",
+    const [posts,setPosts] = useState([])
 
-        }
-    ])
+    useEffect(()=> {
+        BlogPostDataService.getAllPosts().then(res => {
+           
+            setPosts(res.data)
+
+        }).catch(err  => [
+            console.log(err)
+        ])
+
+    },[])
    
-
+    
     return (
-        <PostContext.Provider value={post}>
+        <PostContext.Provider value={posts}>
             {props.children}
         </PostContext.Provider>   
     )

@@ -7,7 +7,9 @@ import Service from './Service'
 import About from './About'
 import Logout from './Logout'
 import Home from './Home';
+import PostDetailPage from '../BlogPost/post/PostDetailPage'
 import BlogPostDataService from './services/BlogPostDataService'
+import {PostProvider} from './post/PostContext' 
 
 
 
@@ -71,9 +73,10 @@ function Main() {
   
 
     return (
+        <PostProvider>
         <div>
            
-            
+           
             <Router>
                 <LoginUserContext.Provider value={loginUser}>
                 <Navbar />
@@ -84,12 +87,23 @@ function Main() {
                     <Route path='/service' component={Service} />
                     <Route path='/about' component={About} />
                     <Route path='/logout' component={Logout} />
+                    <Route path="/posts/:postId">
+                       
+                            <PostDetailPage />
+                        
+                    </Route>
+                    
+                    
+                   
+                   
+
 
                 </Switch>
                 </LoginUserContext.Provider>
             </Router>
 
         </div>
+        </PostProvider>
     )
 }
 
