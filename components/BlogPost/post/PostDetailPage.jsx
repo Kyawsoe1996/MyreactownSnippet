@@ -28,7 +28,9 @@ function PostDetailPage() {
 
   const { postId } = useParams();
 
+  //pass the all user in commentForm
   const posts = useContext(PostContext);
+  const users = posts.users
 
   useEffect(() => {
     console.log("Use Effect on Post Detail Page");
@@ -42,6 +44,7 @@ function PostDetailPage() {
       .catch((error) => {
         console.log(error);
       });
+      
   }, []);
 
   const loginUser = useContext(LoginUserContext);
@@ -147,6 +150,7 @@ function PostDetailPage() {
           submitComment={handleSubmitComment}
           postId={parseInt(postId)}
           hideComment={handleHideComment}
+          allusersList={users}
         />
       ) : null}
     </div>

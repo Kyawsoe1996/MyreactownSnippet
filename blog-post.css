@@ -148,38 +148,62 @@ nav ul a {
 /* ........Comment Form.................... */
 
 
-.comment-form {
+
+.close{
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
+  margin-bottom: 20px;
 }
 
-.reaction-time {
+.comment-form {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.img-logo {
+  
+  flex-basis: 10%;
+  justify-content: flex-end;
+}
+
+.comment-part{
+  
+  flex-basis: 40%;
+  border: 2px solid white;
+  box-shadow: 0 2px 7px rgb(0 0 0 / 20%);
+  background: darkgrey;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: transform .5s;
+  /* transform: scaleX(1.5); */
+  transform: skewY(2deg);
+
+  
+
+  margin-bottom: 30px;
+ 
 }
 
 .comment-text {
-  
+  display: flex;
+  justify-content: space-evenly;
+}
+.reaction-time {
+  display: flex;
+  justify-content: space-evenly;
+}
+.comment-input {
+  box-shadow: 0 2px 7px rgb(0 0 0 / 20%);
   border: 2px solid white;
-  box-shadow: 0 2px 7px rgb(0 0 0 / 0.2);
-  background:#fffffffb;
-  align-items: center;
-  justify-content: center;
-  flex-basis: 20%; 
   border-radius: 10px;
-  /* background-color: transparent; */
- 
-  box-sizing: border-box;
-  transition: transform .5s;
-  transform: translateZ(0);
-
+  width: 90%;
+  height: 52px;
+  margin-right: 20px;
 }
 
-.no-comment-icon {
-  width: 200px;
-  height: 200px;
-  opacity: 1;
-  color: red;
-}
+
 
 /* ...................................... */

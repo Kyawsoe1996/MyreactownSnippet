@@ -1,8 +1,8 @@
 
 import axios from "../axios";
 class BlogPostDataService {
-   getAllUsers() {
-        return axios.get("/account/users/")
+   async getAllUsers() {
+        return await axios.get("/account/users/")
     
    
   }
@@ -36,6 +36,12 @@ class BlogPostDataService {
   async PostComment(postid,data){
     return await axios.post(`/post/posts/${postid}/comments/`,data)
     //http://localhost:8000/api/post/posts/6/comments/
+  }
+
+  async getApostCommentAllReply(postid,commentid){
+    return await axios.get(`/post/posts/${postid}/comments/${commentid}/reply/`)
+    // http://localhost:8000/api/post/posts/4/comments/42/reply/
+    
   }
 
 

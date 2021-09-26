@@ -4,12 +4,14 @@ import PostLists from './post/PostLists'
 import PostAdd from './post/PostAdd'
 import Post from './post/Post'
 import {PostProvider} from './post/PostContext'
+
 function Home() {
     return (
         <PostProvider>
             <div>
                 <p>Home</p>
                 <PostLists />
+               
                 
 
             </div>
