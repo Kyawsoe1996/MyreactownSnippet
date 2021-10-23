@@ -72,7 +72,7 @@ const CommentForm = (props) => {
         allusersList:props.allusersList
     }
 
-    console.log(to_reply_form,"Reply form data")
+   
 
   let commentDataLists = comments.map((c) => (
     <div key={c.id}>

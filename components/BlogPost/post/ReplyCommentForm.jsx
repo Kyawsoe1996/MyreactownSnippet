@@ -1,14 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleRight } from "@fortawesome/free-solid-svg-icons";
 import BlogPostDataService from "../services/BlogPostDataService";
+import { LoginUserContext } from "../Main";
 
 const ReplyCommentForm = (props) => {
   const [replies, setReplies] = useState([]);
   const [replyText, setReplyText] = useState("");
+  const [error, setError] = useState("");
+
+  const loginUser = useContext(LoginUserContext);
+
   const handleSubmitReply = (e) => {
     e.preventDefault();
-    console.log("REPLIED");
+    if (loginUser.length > 0) {
+      const reply_data = {
+        reply_text: replyText,
+        user: loginUser[0].id,
+        comment: props.data.commentId,
+      };
+
+      BlogPostDataService.PostaReplyonAComment(
+        props.data.postId,
+        props.data.commentId,
+        reply_data
+      )
+        .then((res) => {
+          setReplies([...replies, res.data]);
+          setReplyText("");
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+      // props.submitComment(e);
+    } else {
+      e.preventDefault();
+      setError("You need to login to give the comments");
+      setReplyText("");
+    }
   };
 
   useEffect(() => {
@@ -40,6 +69,7 @@ const ReplyCommentForm = (props) => {
   ));
   return (
     <div>
+      <span className="text text-danger"> {error}</span>
       {replies.length > 0 ? (
         <div>
           {ReplyDataLists}

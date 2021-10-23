@@ -44,6 +44,12 @@ class BlogPostDataService {
     
   }
 
+  async PostaReplyonAComment(postid,commentid,reply_data){
+    return await axios.post(`/post/posts/${postid}/comments/${commentid}/reply/`,reply_data)
+    //http://localhost:8000/api/post/posts/9/comments/43/reply/
+    
+  }
+
 
 
   
